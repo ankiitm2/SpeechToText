@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background: rgba(3, 0, 31);
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.App .sideBar {
+    flex: 2;
+}
+
+.App .main {
+    flex: 10;
+}
+
+.App .lowerSide {
+    height: 25%;
+}
+
+.App .main {
+    min-height: calc(100vh - 14rem);
+    margin: 6rem 10rem;
+    margin-bottom: 0;
+}
+
+.App .main .inp {
+    background: rgba(28, 30, 58, 1);
+    width: 70rem;
+}
+
+.App .main .inp input {
+    width: calc(100% - 3rem);
+}
+
+.App .main .chats {
+    max-width: 68rem;
+    height: calc(100vh - 17rem);
+}
+
+.App .main .bot {
+    background: rgba(28, 30, 58, 1);
+    width: fit-content;
+    border-radius: .5rem;
+}
