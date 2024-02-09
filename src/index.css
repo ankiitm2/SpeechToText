@@ -2,56 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+.shadow {
+  box-shadow: 0 12px 48px 0px rgb(109 117 141 / 20%);
+  background: rgb(255 255 255);
 }
 
-html {
-    font-size: 62.5%;
+
+.main:focus {
+  border: 0.3px solid rgb(43, 45, 56, 0.3);
+  outline: none;
 }
 
-body {
-    background: rgba(3, 0, 31);
-    color: white;
-    font-family: 'Poppins', sans-serif;
+.main p {
+  font-size: 18px;
+  letter-spacing: 1px;
+  word-spacing: 2px;
+  line-height: 1.6;
 }
 
-.App .sideBar {
-    flex: 2;
-}
-
-.App .main {
-    flex: 10;
-}
-
-.App .lowerSide {
-    height: 25%;
-}
-
-.App .main {
-    min-height: calc(100vh - 14rem);
-    margin: 6rem 10rem;
-    margin-bottom: 0;
-}
-
-.App .main .inp {
-    background: rgba(28, 30, 58, 1);
-    width: 70rem;
-}
-
-.App .main .inp input {
-    width: calc(100% - 3rem);
-}
-
-.App .main .chats {
-    max-width: 68rem;
-    height: calc(100vh - 17rem);
-}
-
-.App .main .bot {
-    background: rgba(28, 30, 58, 1);
-    width: fit-content;
-    border-radius: .5rem;
+.btn button {
+  position: relative;
+  margin-top: -60px;
+  padding: 6px 32px;
+  font-size: 18px;
 }
