@@ -4,7 +4,7 @@ import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognitio
 function App() {
   const {
     transcript,
-    browserSupportsSpeechRecognition
+    browserSupportsSpeechRecognition, resetTranscript
   } = useSpeechRecognition();
 
   if (!browserSupportsSpeechRecognition) {
@@ -24,6 +24,7 @@ function App() {
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md">Copy</button>
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={startListening}>Start Listening</button>
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={SpeechRecognition.stopListening}>Stop Listening</button>
+          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={SpeechRecognition.resetTranscript}>Reset</button>
         </div>
       </div>
     </div>
