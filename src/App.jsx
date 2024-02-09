@@ -38,9 +38,9 @@ function App() {
         </div>
         <div className="chatFooter mt-auto w-full flex flex-col items-center justify-center">
           <div className="inp p-2 flex items-center rounded-lg">
-            <input type="text" placeholder="send a message..." className="bg-transparent px-3 py-1 " /><button className="send"><img src={sendbtn} className="w-10" alt="send button" /></button>
+            <input type="text" placeholder="send a message..." className="text-2xl bg-transparent px-3 py-1 " /><button className="send"><img src={sendbtn} className="w-10" alt="send button" /></button>
           </div>
-          <p className="my-4">ChatGPT may produce inaccurate information about people, places or facts. ChatGPT August 20 Version.</p>
+          <p className="my-4 text-xl">ChatGPT may produce inaccurate information about people, places or facts. ChatGPT August 20 Version.</p>
         </div>
       </div>
     </div>
