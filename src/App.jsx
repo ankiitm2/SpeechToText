@@ -1,16 +1,22 @@
 import 'regenerator-runtime/runtime'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-import { useState } from 'react';
+import { useState, useEffect } from 'react'; // Import useEffect hook
 import useClipboard from "react-use-clipboard";
 
 function App() {
-  const [copyText, setCopyText] = useState()
+  const [copyText, setCopyText] = useState("");
   const [listening, setListening] = useState(false);
   const [isCopied, setCopied] = useClipboard(copyText);
   const {
     transcript,
-    browserSupportsSpeechRecognition, resetTranscript
+    browserSupportsSpeechRecognition,
+    resetTranscript
   } = useSpeechRecognition();
+
+  useEffect(() => {
+    // Update copyText state when transcript changes
+    setCopyText(transcript);
+  }, [transcript]);
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
@@ -46,4 +52,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
