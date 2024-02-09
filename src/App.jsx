@@ -7,6 +7,7 @@ function App() {
   const [copyText, setCopyText] = useState("");
   const [listening, setListening] = useState(false);
   const [isCopied, setCopied] = useClipboard(copyText);
+  const [isCopiedText, setIsCopiedText] = useState(false);
   const {
     transcript,
     browserSupportsSpeechRecognition,
@@ -14,9 +15,15 @@ function App() {
   } = useSpeechRecognition();
 
   useEffect(() => {
-    // Update copyText state when transcript changes
     setCopyText(transcript);
   }, [transcript]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsCopiedText(false);
+    }, 1500)
+    return () => clearTimeout(timer);
+  }, [isCopiedText])
 
   if (!browserSupportsSpeechRecognition) {
     return <span>Browser doesn't support speech recognition.</span>;
@@ -32,6 +39,11 @@ function App() {
     setListening(false);
   }
 
+  const handleCopy = () => {
+    setCopied();
+    setIsCopiedText(true)
+  }
+
   return (
     <div className="App">
       <div className="container m-8 flex flex-col m-auto mt-20">
@@ -42,8 +54,8 @@ function App() {
         <div className="btn flex justify-around max-w-3xl w-full m-auto">
           <button className=" bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={startListening} style={{ display: listening ? 'none' : 'block' }}>Start Listening</button>
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={stopListening} style={{ display: listening ? 'block' : 'none' }}>Stop Listening</button>
-          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={setCopied}>
-            Copy
+          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={handleCopy}>
+            {isCopiedText ? "Copied!" : "Copy"}
           </button>
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={resetTranscript}>Reset</button>
         </div>
