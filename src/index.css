@@ -26,3 +26,14 @@
   padding: 6px 32px;
   font-size: 18px;
 }
+
+@media only screen and (max-width:640px) {
+  .btn {
+    flex-direction: column;
+  }
+
+  .btn button {
+    margin: 0 1rem;
+    margin-top: .5rem;
+  }
+}
