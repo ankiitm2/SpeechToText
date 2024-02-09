@@ -1,9 +1,11 @@
 import 'regenerator-runtime/runtime'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 import { useState } from 'react';
+import useClipboard from "react-use-clipboard";
 
 function App() {
   const [listening, setListening] = useState(false);
+  const [isCopied, setCopied] = useClipboard("Text to copy");
   const {
     transcript,
     browserSupportsSpeechRecognition, resetTranscript
@@ -31,10 +33,13 @@ function App() {
           {transcript}
         </div>
         <div className="btn flex justify-around max-w-3xl w-full m-auto">
-          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md">Copy</button>
           <button className=" bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={startListening} style={{ display: listening ? 'none' : 'block' }}>Start Listening</button>
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={stopListening} style={{ display: listening ? 'block' : 'none' }}>Stop Listening</button>
-          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={SpeechRecognition.resetTranscript}>Reset</button>
+          {/* <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md">Copy</button> */}
+          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={setCopied}>
+            Copy
+          </button>
+          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={resetTranscript}>Reset</button>
         </div>
       </div>
     </div>
