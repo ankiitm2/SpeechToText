@@ -11,6 +11,8 @@ function App() {
     return <span>Browser doesn't support speech recognition.</span>;
   }
 
+  const startListening = () => SpeechRecognition.startListening({ continuous: true, language: 'en-IN' });
+
   return (
     <div className="App">
       <div className="container m-8 flex flex-col m-auto mt-20">
@@ -20,7 +22,7 @@ function App() {
         </div>
         <div className="btn flex justify-around max-w-3xl w-full m-auto">
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md">Copy</button>
-          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={SpeechRecognition.startListening}>Start Listening</button>
+          <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={startListening}>Start Listening</button>
           <button className="bg-green-600 text-lg h-fit shadow-md text-white rounded-md" onClick={SpeechRecognition.stopListening}>Stop Listening</button>
         </div>
       </div>
